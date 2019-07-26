@@ -1,4 +1,3 @@
-// made by UnderC(ink0416@naver.com)
 const Mysql = require('mysql')
 class DB {
     constructor(host, user, pw, db) {
@@ -60,7 +59,7 @@ class DB {
     }
 
     query(sql, modified) {
-        console.log(sql)
+        console.log(`SQL Event : ${sql}`)
         return new Promise((resolve, reject) => {
             this.getConn().then(conn => {
                 conn[modified ? 'commit' : 'query'](sql, (err, rows, fields) => {
